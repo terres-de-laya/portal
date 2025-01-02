@@ -1,0 +1,94 @@
+name: release version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]') && startsWith(github.event.head_commit.message, '[release]')"
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Bump version and push tag
+        id: tag_version_dry
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dry_run: true
+
+      - name: Update version
+        run: |
+          new_tag="${{ steps.tag_version_dry.outputs.new_tag }}"
+          new_tag_without_v="${new_tag#v}"
+          echo "$new_tag_without_v" > version.txt
+          echo "app-version=$new_tag_without_v" >> $GITHUB_ENV
+
+      - name: Commit and push version.txt
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.txt
+          git commit -m "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
+          git push origin main
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Angular
+      - name: Clear npm cache
+        run: npm cache clean --force
+      - name: Verify Angular project compiles
+        run: |
+          cd terres-de-laya-portal
+          npm ci # Install dependencies
+          npm run build -- --configuration production # Build the project
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io/terresdelaya
+          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: linux/amd64,linux/arm64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./terres-de-laya-portal
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: ghcr.io/terresdelaya/terres-de-laya-portal:${{ env.app-version }}
+
+      - name: Deploy
+        uses: qcastel/github-actions-trigger-deploy@master
+        with:
+          branch-name: main
+
+          git-release-bot-name: "bot-theopenshelf"
+          git-release-bot-email: "bot@theopenshelf.dev"
+
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+          repository: git@github.com:terresdelaya/terres-de-laya-deployment.git
+
+          images-names: "terres-de-laya-portal"
+
+          version: ${{ env.app-version }}
+
+          gpg-enabled: true
+          gpg-key-id: ${{ secrets.GPG_KEY_ID }}
+          gpg-key: ${{ secrets.GPG_KEY }}

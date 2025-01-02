@@ -28,7 +28,7 @@ h3 {
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1) !important;
     width: 100%;
     height: 0; // Set height to 0
-    padding-bottom: 80%; // Use padding to maintain square aspect ratio
+    padding-bottom: 100%; // Use padding to maintain square aspect ratio
 
     &:hover {
         transform: translateY(-5px);
@@ -40,12 +40,12 @@ h3 {
         display: flex;
         justify-content: center;
         width: 100%;
-        height: 100px; // Adjust height as needed
+        height: 30%; // Adjust height as needed
         overflow: hidden;
 
         img {
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
             object-fit: cover; // Ensure the image covers the container
         }
     }
@@ -57,7 +57,7 @@ h3 {
     h2 {
         font-size: 1.25rem; // Adjust font size
         font-weight: 700; // Adjust font weight
-        margin-bottom: 8px; // Add margin for spacing
+        margin: 0; // Add margin for spacing
     }
 
     p {

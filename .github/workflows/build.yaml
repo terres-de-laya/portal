@@ -1,0 +1,23 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+
+    steps:
+      - uses: actions/checkout@v1
+
+      # Angular
+      - name: Clear npm cache
+        run: npm cache clean --force
+      - name: Verify Angular project compiles
+        run: |
+          cd terres-de-laya-portal
+          npm ci # Install dependencies
+          npm run build -- --configuration production # Build the project
