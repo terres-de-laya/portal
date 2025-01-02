@@ -1,12 +1,7 @@
 version: 2
 updates:
-  - package-ecosystem: "maven"
-    directory: "platform-api"
-    schedule:
-      interval: "daily"
-
   - package-ecosystem: "npm"
-    directory: "platform-ui"
+    directory: "terres-de-laya-portal"
     schedule:
       interval: "daily"
     groups:
