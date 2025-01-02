@@ -26,9 +26,6 @@ jobs:
           new_tag_without_v="${new_tag#v}"
           echo "$new_tag_without_v" > version.txt
           echo "app-version=$new_tag_without_v" >> $GITHUB_ENV
-
-      - name: Commit and push version.txt
-        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add version.txt
