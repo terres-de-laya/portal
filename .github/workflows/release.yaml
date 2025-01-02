@@ -11,7 +11,9 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[ci skip]') && startsWith(github.event.head_commit.message, '[release]')"
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Bump version and push tag
         id: tag_version_dry
@@ -34,6 +36,7 @@ jobs:
           branch: main
           file_pattern: version.txt
           commit_author: "bot-theopenshelf"
+          commit_user_name: "bot-theopenshelf"
           commit_email: "bot@theopenshelf.dev"
 
       - name: Bump version and push tag
