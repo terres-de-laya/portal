@@ -28,9 +28,10 @@ jobs:
           echo "app-version=$new_tag_without_v" >> $GITHUB_ENV
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git status
           git add version.txt
           git commit -m "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
-          git status
+          git log
           git push origin main
 
       - name: Bump version and push tag
