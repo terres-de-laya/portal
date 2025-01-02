@@ -74,7 +74,7 @@ jobs:
           context: ./terres-de-laya-portal
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/terresdelaya/terres-de-laya-portal:${{ env.app-version }}
+          tags: ghcr.io/terres-de-laya/terres-de-laya-portal:${{ env.app-version }}
 
       - name: Deploy
         uses: qcastel/github-actions-trigger-deploy@master
@@ -86,7 +86,7 @@ jobs:
 
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          repository: git@github.com:terresdelaya/terres-de-laya-deployment.git
+          repository: git@github.com:terres-de-laya/terres-de-laya-deployment.git
 
           images-names: "terres-de-laya-portal"
 
