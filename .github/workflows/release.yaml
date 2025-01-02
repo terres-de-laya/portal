@@ -33,6 +33,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add version.txt
           git commit -m "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
+          git status
           git push origin main
 
       - name: Bump version and push tag
