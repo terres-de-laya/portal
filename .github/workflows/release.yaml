@@ -24,7 +24,6 @@ jobs:
 
       - name: Update version
         run: |
-          git checkout
           new_tag="${{ steps.tag_version_dry.outputs.new_tag }}"
           new_tag_without_v="${new_tag#v}"
           echo "$new_tag_without_v" > version.txt
@@ -35,7 +34,7 @@ jobs:
           commit_message: "Bump version to ${{ env.app-version }}"
           branch: main
           file_pattern: version.txt
-          commit_author: "bot-theopenshelf"
+          commit_author: "bot-theopenshelf <bot@theopenshelf.dev>"
           commit_user_name: "bot-theopenshelf"
           commit_email: "bot@theopenshelf.dev"
 
