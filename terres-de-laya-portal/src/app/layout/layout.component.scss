@@ -1,0 +1,88 @@
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--tos-background-accent-1);
+    color: var(--tos-text-accent);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    #logo {
+        margin: auto;
+    }
+
+    // Define a placeholder for common styles
+    %leafs-common {
+        width: 50%;
+        align-self: end; // Aligns the element to the bottom of its grid area
+        transform: translateY(20px); // Moves the element 10px from the bottom
+    }
+
+    #leafs-primary-left {
+        @extend %leafs-common; // Apply common styles
+        justify-self: end; // Aligns the element to the right of its grid area
+    }
+
+    #leafs-primary-right {
+        @extend %leafs-common; // Apply common styles
+    }
+}
+
+main {
+    background-color: var(--tos-background-base-alt);
+    padding: 0 20%;
+
+}
+
+
+
+
+footer {
+
+    border: 1.5rem solid transparent;
+
+
+    background-color: var(--tos-background-base-alt);
+
+    .footer-default__head {
+        border-bottom: 1px solid lightgray;
+    }
+
+
+    .footer-default__head:after {
+        content: '';
+        width: 35px;
+        height: 2px;
+        background: #f24a00;
+        display: block;
+        transform: translateY(2px);
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: start;
+        background-color: var(--tos-background-base-alt);
+
+        .footer-address {
+            align-self: start; // Aligns the element to the top of its grid area
+            justify-self: start; // Aligns the element to the left of its grid area
+        }
+
+        p {
+            color: var(--tos-text-secondary);
+        }
+
+        a {
+            color: var(--tos-text-secondary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--tos-text-accent-hover);
+            text-decoration: underline;
+        }
+    }
+
+    padding: 0 20%;
+
+}
