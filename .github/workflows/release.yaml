@@ -20,21 +20,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           dry_run: true
 
-      - name: Update version
-        run: |
-          git checkout main
-          new_tag="${{ steps.tag_version_dry.outputs.new_tag }}"
-          new_tag_without_v="${new_tag#v}"
-          echo "$new_tag_without_v" > version.txt
-          echo "app-version=$new_tag_without_v" >> $GITHUB_ENV
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${{ secrets.GITHUB_TOKEN }}"
-          git status
-          git add version.txt
-          git commit -m "Bump version to ${{ steps.tag_version_dry.outputs.new_tag }}"
-          git log
-          git push origin main
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Bump version to ${{ env.app-version }}"
+          branch: main
+          file_pattern: version.txt
+          commit_author: "bot-theopenshelf"
+          commit_email: "bot@theopenshelf.dev"
 
       - name: Bump version and push tag
         id: tag_version
