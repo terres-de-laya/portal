@@ -43,10 +43,10 @@ export class SignupComponent {
       this.authService.createUser(email, password, username, lastName, firstName, apartmentNumber, status)
         .subscribe({
           next: () => {
-            this.alerts.open('Registration successful! <strong>Please check your email for confirmation.</strong>', { label: 'Success', appearance: 'positive' });
+            this.alerts.open('Registration successful! <strong>Please check your email for confirmation.</strong>', { label: 'Success', appearance: 'positive' }).subscribe();
             this.router.navigate(['/home']);
           },
-          error: (err) => this.alerts.open('Registration failed: <strong>' + err.message + '</strong>', { label: 'Error', appearance: 'negative' })
+          error: (err) => this.alerts.open('Registration failed: <strong>' + err.message + '</strong>', { label: 'Error', appearance: 'negative' }).subscribe()
         });
     }
   }
