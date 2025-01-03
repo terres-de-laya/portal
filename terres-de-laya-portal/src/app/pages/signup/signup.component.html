@@ -1,8 +1,18 @@
-<a 
+
+<button
 class="back-to-home"
-tuiLink [routerLink]="['/']">
-    Page d'accueil
-</a>
+appearance="outline"
+tuiButton
+size="s"
+type="button"
+[routerLink]="['/']"
+>
+<tui-icon
+icon="undo-2"
+[style.color]="'var(--tui-background-accent-1)'"
+/>
+    Retour vers la page d'accueil
+</button>
 
 <div id="signup-form-section">
     <h2>Inscription</h2>
