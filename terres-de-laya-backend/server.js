@@ -7,7 +7,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.post('/register-user', async (req, res) => {
+app.post('/api/register-user', async (req, res) => {
   const { email, password, username, user_metadata } = req.body;
 
   try {
