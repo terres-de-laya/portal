@@ -14,7 +14,7 @@ COPY ./ /usr/local/app/
 ENV NODE_ENV=production
 
 # Install all the dependencies
-RUN npm ci  # Use npm ci for a clean install based on package-lock.json
+RUN npm install  # Use npm install if package-lock.json is not available
 
 # Expose port 3000
 EXPOSE 3000
