@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "stylePreprocessorOptions": {
+            "includePaths": [
+              "src/styles"
+            ]
+          },
             "outputPath": "dist/terres-de-laya-portal",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -39,8 +44,8 @@
             "styles": [
               "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-              "src/styles.scss",
-              "src/_theme.scss"
+              "src/styles/styles.scss",
+              "src/styles/_theme.scss"
 
             ],
             "scripts": []

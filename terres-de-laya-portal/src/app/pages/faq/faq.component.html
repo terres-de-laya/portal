@@ -1,1 +1,59 @@
-<p>faq works!</p>
+<div class="container-faq">
+    <tui-accordion>
+        <tui-accordion-item>
+            Comment créer un compte ?
+            <ng-template tuiAccordionItemContent>
+                Vous pouvez créer un compte en cliquant sur le bouton "Créer un compte" sur la page d'accueil.
+            </ng-template>
+        </tui-accordion-item>
+        <tui-accordion-item>
+            Qu'est-ce que Element ?
+            <ng-template tuiAccordionItemContent>
+                <div>
+                    <p>
+                        Element est une application de communication basée sur le protocole Matrix.
+                    </p>
+
+                    <p>
+                        Elle permet de discuter, partager des fichiers et collaborer avec d'autres habitants du quartier.
+                    </p>
+                    <h4>Comment Element se compare à WhatsApp ?</h4>
+                    <ul>
+                        <li>
+                            <strong>Ouverture et Interopérabilité :</strong>
+                            Contrairement à WhatsApp, qui est une plateforme fermée, Element repose sur le protocole Matrix, permettant de communiquer avec d'autres outils compatibles.
+                        </li>
+                        <li>
+                            <strong>Confidentialité et Contrôle :</strong>
+                            Avec Element, vos données peuvent être hébergées sur des serveurs que vous contrôlez (comme
+                            <em>chat.theopenshelf.dev</em>
+                            ), contrairement à WhatsApp, où elles sont centralisées chez Meta.
+                        </li>
+                        <li>
+                            <strong>Usage communautaire :</strong>
+                            WhatsApp est généraliste, tandis qu'Element est adapté aux communautés locales comme les éco-quartiers, offrant un cadre pour des projets collaboratifs.
+                        </li>
+                    </ul>
+                    En résumé, Element se distingue par sa flexibilité, son respect de la vie privée et son orientation vers les communautés.
+                </div>
+            </ng-template>
+        </tui-accordion-item>
+        <tui-accordion-item>
+            Est-ce que Element a une application mobile ?
+            <ng-template tuiAccordionItemContent>
+                <div #content>
+                    Oui, Element a une application mobile disponible sur les plateformes Android et iOS.
+                </div>
+            </ng-template>
+        </tui-accordion-item>
+        <tui-accordion-item>
+            Qu'est-ce que TheOpenShelf ?
+            <ng-template tuiAccordionItemContent>
+                TheOpenShelf est une application de gestion de bibliothèque d'objects.
+                Elle permet de gérer les objets partagés entre les habitants du quartier.
+
+                C'est une initiative en cours de développement.
+            </ng-template>
+        </tui-accordion-item>
+    </tui-accordion>
+</div>

@@ -1,0 +1,52 @@
+@use 'theme' as *;
+
+#signup-form-section {
+    color: var(--tos-text-primary);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; // Change to column for vertical layout
+    justify-content: space-between;
+    background-color: var(--tos-background-base);
+    border-radius: 16px;
+    text-align: left;
+    border: 0px solid rgb(226, 232, 240);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.037), 0 1px 2px -1px rgba(0, 0, 0, 0.037) !important;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    tui-textfield {
+        margin-bottom: 15px;
+    }
+
+    button {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    a {
+        color: var(--tos-text-action);
+        font-weight: 600;
+        transition: color 0.3s;
+
+        &:hover {
+            color: var(--tos-text-action-hover);
+        }
+    }
+}
+
+.status-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    div {
+        display: flex; // Align radio buttons side by side
+    }
+
+    label {
+        margin-right: 10px; // Add some space between the radio buttons
+    }
+}

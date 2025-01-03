@@ -1,0 +1,15 @@
+.container-faq {
+    color: var(--tos-text-primary);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; // Change to column for vertical layout
+    justify-content: space-between;
+    background-color: var(--tos-background-base);
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: left;
+    border: 0px solid rgb(226, 232, 240);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.037), 0 1px 2px -1px rgba(0, 0, 0, 0.037) !important;
+    width: 100%;
+
+}

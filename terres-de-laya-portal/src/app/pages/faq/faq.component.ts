@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TuiAccordion } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-faq',
-  imports: [],
+  imports: [TuiAccordion],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })
