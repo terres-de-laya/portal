@@ -1,5 +1,15 @@
 @use 'theme' as *;
 
+
+.back-to-home {
+    color: var(--tos-text-action);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; // Change to column for vertical layout
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
 #signup-form-section {
     color: var(--tos-text-primary);
     text-decoration: none;
