@@ -10,7 +10,7 @@ export class AuthService {
 
     constructor(private http: HttpClient) { }
 
-    createUser(email: string, password: string, username: string, lastName: string, firstName: string, apartmentNumber: string, status: string): Observable<any> {
+    createUser(email: string, password: string, username: string, lastName: string, firstName: string, apartmentNumber: string, status: string, role: string | undefined | null): Observable<any> {
         const user = {
             email,
             password,
@@ -19,7 +19,8 @@ export class AuthService {
                 lastName,
                 firstName,
                 apartmentNumber,
-                status
+                status,
+                role
             }
         };
 

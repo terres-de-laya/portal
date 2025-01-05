@@ -41,6 +41,36 @@
             color: var(--tos-text-action-hover);
         }
     }
+
+    .password-rules,
+    .username-rules {
+        color: var(--tos-text-negative); // Red color for error messages
+        font-size: 0.875rem; // Smaller font size
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        span {
+            display: block;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+
+            &::before {
+                content: '•'; // Bullet point
+                position: absolute;
+                left: 0;
+                color: #e53e3e;
+            }
+        }
+    }
+
+    .help-text {
+        color: var(--tos-text-secondary); // Use a secondary text color
+        font-size: 0.875rem; // Smaller font size for help text
+        margin-top: 5px; // Space above the help text
+        margin-bottom: 15px; // Space below the help text
+        padding-left: 20px; // Align with input fields
+    }
 }
 
 .status-radio {

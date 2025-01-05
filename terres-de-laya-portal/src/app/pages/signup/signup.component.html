@@ -1,4 +1,3 @@
-
 <button
 class="back-to-home"
 appearance="outline"
@@ -24,11 +23,55 @@ icon="undo-2"
             <input formControlName="username" type="text" tuiTextfield>
         </tui-textfield>
 
+        <div class="username-rules">
+            @if (usernameFormField?.dirty) {
+                <div class="text-red-400 text-sm">
+                    @if (!usernameFormField?.value?.match('^[a-z0-9]+$')) {
+                        <span class="block">
+                            Le nom d'utilisateur doit contenir uniquement des lettres minuscules et des chiffres.
+                        </span>
+                    }
+                </div>
+            }
+        </div>
+
         <tui-textfield>
             <label tuiLabel>Mot de passe</label>
             <input formControlName="password" type="password" tuiTextfield>
             <tui-icon tuiPassword />
         </tui-textfield>
+
+        <div class="password-rules">
+            @if (passwordFormField?.dirty) {
+                <div class="text-red-400 text-sm">
+                    @if (!passwordFormField?.value?.match('^(?=.*[A-Z])')) {
+                        <span class="block">
+                            Au moins une lettre majuscule.
+                        </span>
+                    }
+                    @if (!passwordFormField?.value?.match('(?=.*[a-z])')) {
+                        <span class="block">
+                            Au moins une lettre minuscule.
+                        </span>
+                    }
+                    @if (!passwordFormField?.value?.match('(?=.*\\d)')) {
+                        <span class="block">
+                            Au moins un chiffre.
+                        </span>
+                    }
+                    @if (!passwordFormField?.value?.match('(?=.*[!@#$%^&*])')) {
+                        <span class="block">
+                            Au moins un caractère spécial.
+                        </span>
+                    }
+                    @if (!passwordFormField?.value?.match('.{8,}')) {
+                        <span class="block">
+                            Au moins 8 caractères.
+                        </span>
+                    }
+                </div>
+            }
+        </div>
 
         <tui-textfield>
             <label tuiLabel>Nom</label>
@@ -56,8 +99,24 @@ icon="undo-2"
                     <input name="status" tuiRadio type="radio" [value]="'locataire'" formControlName="status" />
                     Locataire
                 </label>
+
+                <label tuiLabel>
+                    <input name="status" tuiRadio type="radio" [value]="'autre'" formControlName="status" />
+                    Autre
+                </label>
             </div>
         </div>
+
+        @if (signUpForm.get('status')?.value === 'autre') {
+        <tui-textfield>
+            
+            <label tuiLabel>Role</label>
+            <input formControlName="role" type="role" tuiTextfield>
+            <span class="help-text">
+                Veuillez préciser votre rôle ou votre future interaction avec l'écoquartier.
+            </span>
+        </tui-textfield>
+        }
 
         <tui-textfield>
             <label tuiLabel>Numéro d'appartement</label>
