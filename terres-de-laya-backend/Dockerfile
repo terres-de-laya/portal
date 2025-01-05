@@ -13,8 +13,8 @@ COPY ./ /usr/local/app/
 # Set the environment variable for Node environment
 ENV NODE_ENV=production
 
-# Install all the dependencies
-RUN npm install  # Use npm install if package-lock.json is not available
+# Clear npm cache before installing dependencies
+RUN npm cache clean --force && npm install
 
 # Expose port 3000
 EXPOSE 3000
