@@ -81,7 +81,7 @@ jobs:
         with:
           context: ./terres-de-laya-backend
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           tags: ghcr.io/terres-de-laya/terres-de-laya-backend:${{ env.app-version }}
 
       - name: Deploy

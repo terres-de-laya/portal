@@ -49,3 +49,5 @@ terres-de-laya-portal/src/app/api-client/
 terres-de-laya-portal/openapi.yaml
 terres-de-laya-portal/openapi.yaml
 terres-de-laya-backend/node_modules
+terres-de-laya-backend/invite-bot.json
+terres-de-laya-backend/welcome-bot.json
