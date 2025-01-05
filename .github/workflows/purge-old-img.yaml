@@ -15,7 +15,7 @@ jobs:
           image-names: terres-de-laya-portal
           cut-off: A week ago UTC
           account-type: org
-          org-name: terresdelaya
+          org-name: terres-de-laya
           keep-at-least: 1
           untagged-only: true
           token: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
@@ -26,7 +26,7 @@ jobs:
           image-names: terres-de-laya-portal
           cut-off: One month ago UTC
           account-type: org
-          org-name: terresdelaya
+          org-name: terres-de-laya
           keep-at-least: 1
           skip-tags: latest
           token: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}

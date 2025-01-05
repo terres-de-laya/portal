@@ -1,0 +1,52 @@
+Bienvenue sur Terres de Laya ! 🌱✨
+
+Nous sommes ravis de vous accueillir dans notre espace collaboratif ! Ici, vous pourrez échanger, participer à des projets collectifs et vous connecter avec la communauté de l’éco-quartier. 🎉
+
+Quelques conseils pour bien commencer :
+	•	Fil de discussion (thread) : Si vous répondez à un message spécifique, utilisez les threads. Cela permet de garder la discussion claire et organisée.
+	•	Notifications : Activez les notifications des rooms qui vous intéressent le plus pour ne rien manquer ! Vous pouvez les gérer dans les paramètres de chaque room.
+	•	Mentions : Utilisez “@” suivi du nom d’une personne pour attirer son attention dans une conversation.
+
+Découvrez nos rooms :
+
+Voici les différents espaces où vous pourrez participer, avec leur lien direct :
+
+#general:chat.terresdelaya.fr 🌍️
+Espace pour les annonces générales, discussions diverses et échanges entre membres de la communauté.
+
+#support:chat.terresdelaya.fr 🛠️
+Besoin d’aide ou de réponses à vos questions ? C’est ici que ça se passe !
+
+#espace-commun:chat.terresdelaya.fr 🏡
+Échangez des idées, proposez des projets ou participez à l’aménagement de l’espace commun.
+
+#evenements:chat.terresdelaya.fr 📅
+Retrouvez les annonces et participez aux discussions sur les événements à venir.
+
+#boite-idees:chat.terresdelaya.fr 💡
+Proposez vos idées pour améliorer l’éco-quartier et participez à leur développement.
+
+#syndic-de-copropriete:chat.terresdelaya.fr 🏢
+Participez aux discussions concernant la gestion de la copropriété et les décisions collectives.
+
+#chambre-hotes:chat.terresdelaya.fr 🛌
+Réservez ou posez des questions sur la chambre d’hôtes partagée.
+
+#mobilite-partagee:chat.terresdelaya.fr 🚲
+Discutez de voitures, vélos ou trottinettes partagés et partagez vos conseils.
+
+#voitures-partagees:chat.terresdelaya.fr 🚗
+Un espace dédié aux voitures partagées : poser des questions, donner ou recevoir de l’aide, ou partager des infos.
+
+#potagers-partages:chat.terresdelaya.fr 🌿
+Échangez autour des potagers collectifs : organisation, conseils et astuces.
+
+#parents:chat.terresdelaya.fr 👨‍👩‍👧‍👦
+Un espace dédié aux parents pour organiser des activités pour les enfants et discuter des sujets liés à la parentalité.
+
+
+Créez vos propres rooms :
+
+Vous avez une idée ou un besoin spécifique non couvert par ces rooms ? N’hésitez pas à créer une room dédiée ! Notre communauté évolue grâce à vos initiatives.
+
+En cas de question ou pour toute aide, passez par #support:chat.terresdelaya.fr ou mentionnez-moi directement pour des conseils pratiques. Bonne exploration et bienvenue parmi nous ! 🚀
