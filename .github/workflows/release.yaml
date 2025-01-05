@@ -104,7 +104,7 @@ jobs:
 
           repository: git@github.com:terres-de-laya/terres-de-laya-deployment.git
 
-          images-names: "terres-de-laya-portal;terres-de-laya-backend"
+          images-names: "terres-de-laya-portal;terres-de-laya-backend;terres-de-laya-bot"
 
           version: ${{ env.app-version }}
 
