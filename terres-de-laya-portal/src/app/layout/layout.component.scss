@@ -28,12 +28,59 @@ header {
 
 main {
     background-color: var(--tos-background-base-alt);
-    padding: 20px 20%;
-
+    padding: 20px;
 }
 
+// For large screens, keep the left and right padding at 20%
+@media (min-width: 768px) {
+    main {
+        padding: 20px 10%;
+    }
+
+    footer {
+        padding: 0 10%;
+    }
+}
+
+// For mobile screens, change the left and right padding to 5%
+@media (max-width: 767px) {
+
+    header {
+
+        grid-template-columns: 1fr;
+
+        #leafs-primary-left,
+        #leafs-primary-right {
+            visibility: hidden;
+            height: 0;
+        }
+
+    }
+
+    main {
+        padding: 20px 0%;
+    }
+
+    footer {
+        padding: 0;
+        min-height: 200px;
+
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+
+        #leafs-accent {
+            visibility: hidden;
+            width: 70%;
+        }
+
+        .footer-address {
+            visibility: hidden;
+        }
+    }
 
 
+}
 
 footer {
 
@@ -86,7 +133,4 @@ footer {
     #leafs-accent {
         width: 70%;
     }
-
-    padding: 0 20%;
-
 }
