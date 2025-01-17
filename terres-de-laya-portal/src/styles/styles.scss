@@ -39,3 +39,8 @@ select {
 button.accent[tuiButton][data-appearance="outline"] {
     color: var(--tos-text-accent);
 }
+
+
+fieldset.t-item {
+    padding: 0 !important;
+}

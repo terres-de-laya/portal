@@ -10,11 +10,7 @@
             <b>Habitant ou future habitant ?</b>
             Créez votre compte pour accéder aux différentes applications mises à disposition par Terres de Laya.
         </p>
-        <button
-            tuiButton
-            appearance="accent"
-            routerLink="/signup"
-        >
+        <button tuiButton appearance="accent" routerLink="/signup">
             Créer un compte
         </button>
     </section>
@@ -24,19 +20,10 @@
         </h3>
 
         <div class="application-container">
-            <a
-                href="https://chat.terresdelaya.fr"
-                class="app-card"
-            >
+            <a href="https://chat.terresdelaya.fr" class="app-card">
                 <div class="card-content">
-                    <div
-                        class="image-container"
-                        style="background-color: #0dbd8b;"
-                    >
-                        <img
-                            src="/logo-mark-primary.svg"
-                            alt="The Open Shelf"
-                        >
+                    <div class="image-container" style="background-color: #0dbd8b;">
+                        <img src="/logo-mark-primary.svg" alt="The Open Shelf">
                     </div>
                     <div class="card-details">
                         <h2>Element</h2>
@@ -45,19 +32,10 @@
                 </div>
             </a>
 
-            <a
-                href="https://theopenshelf.terresdelaya.fr"
-                class="app-card"
-            >
+            <a href="https://theopenshelf.terresdelaya.fr" class="app-card">
                 <div class="card-content">
-                    <div
-                        class="image-container"
-                        style="background-color: #283242;"
-                    >
-                        <img
-                            src="/the-open-shelf.png"
-                            alt="The Open Shelf"
-                        >
+                    <div class="image-container" style="background-color: #283242;">
+                        <img src="/the-open-shelf.png" alt="The Open Shelf">
                     </div>
                     <div class="card-details">
                         <h2>The Open Shelf</h2>
@@ -67,4 +45,26 @@
             </a>
         </div>
     </section>
-</div>
+    <section>
+        <h3>
+            Une selection de tutoriels pour vous aider à mieux comprendre les outils numériques de Terres de Laya
+        </h3>
+
+        <div class="tutorial-container">
+            @for (item of items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage); track item) {
+                <div class="item">
+                    <h2 class="title">{{ item.title }}</h2>
+                    <video width="320" height="240" controls>
+                        <source src="{{ item.videoUrl }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            }
+        </div>
+
+        <tui-pagination
+            [index]="currentPage"
+            [length]="items.length / itemsPerPage | ceil"
+            (indexChange)="onPageChange($event)"
+        />
+    </section>
