@@ -12,6 +12,15 @@ h3 {
     gap: 20px; // Adjust the gap between cards as needed
 }
 
+.store-button {
+    cursor: pointer;
+    border: 0px;
+    height: 100px;
+
+    img {
+        height: 100px;
+    }
+}
 
 @media (max-width: 767px) {
 

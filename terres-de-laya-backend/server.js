@@ -43,8 +43,13 @@ app.post("/api/register-user", async (req, res) => {
       }
     );
   } catch (error) {
-    console.error("Error registering user:", error);
-    res.status(500).json({ error: "Failed to register user" });
+    if (error.response && error.response.status === 409) {
+      // 409 Conflit est un code d'état courant pour "l'utilisateur existe déjà"
+      res.status(409).json({ error: "L'utilisateur existe déjà" });
+    } else {
+      console.error("Erreur lors de l'enregistrement de l'utilisateur :", error);
+      res.status(500).json({ error: "Échec de l'enregistrement de l'utilisateur" });
+    }
   }
 });
 

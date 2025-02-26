@@ -134,3 +134,8 @@ footer {
         width: 70%;
     }
 }
+
+.footer-links {
+    display: flex;
+    flex-direction: column; // Arrange items in a column
+}
