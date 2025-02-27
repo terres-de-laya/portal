@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
 import { TuiCarousel, TuiPagination } from '@taiga-ui/kit';
@@ -18,14 +19,9 @@ export class HomeComponent {
   protected itemsPerPage = 3;
 
   protected readonly items = [
-    { title: 'Qu\'est-ce que Element ?', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Installer Element sur mon téléphone', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Naviguer dans l\'interface Element', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Participer aux discussions dans les salons', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Créer et organiser des salons pour l\'écoquartier', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Configurer les notifications intelligemment', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Créer et répondre à un sondage', videoUrl: 'url_to_your_video.mp4' },
-    { title: 'Collaborer avec des fichiers et documents', videoUrl: 'url_to_your_video.mp4' },
+    { title: 'Creer un compte sur terresdelaya.fr', videoUrl: 'https://www.youtube.com/embed/twLqvKJ1vB8' },
+    { title: 'Presentation de Element', videoUrl: 'https://www.youtube.com/embed/OAiILPEcwbQ' },
+    { title: 'Installer Element sur mon téléphone', videoUrl: 'https://www.youtube.com/embed/3C0Oh7G2WJA' },
   ];
 
   protected get rounded(): number {
@@ -44,7 +40,7 @@ export class HomeComponent {
     this.setItemsPerPage();
   }
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     this.setItemsPerPage();
   }
 
@@ -56,5 +52,9 @@ export class HomeComponent {
     } else {
       this.itemsPerPage = 3; // default value
     }
+  }
+
+  transform(url: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }
