@@ -53,7 +53,6 @@ app.post("/api/register-user", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Bot server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Backend listening at http://localhost:${port}`);
 });
