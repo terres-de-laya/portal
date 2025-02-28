@@ -91,6 +91,25 @@ async function startBot(jwt) {
   }
 }
 
+app.post("/send-message", async (req, res) => {
+  const { roomId, message } = req.body;
+
+  if (!roomId || !message) {
+    return res.status(400).json({ error: "Missing roomId or message" });
+  }
+
+  try {
+    const botStorage = new SimpleFsStorageProvider("welcome-bot.json");
+    const client = new MatrixClient(homeserverUrl, await getAccessToken(), botStorage);
+
+    await client.sendText(roomId, message);
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Failed to send message:", err);
+    res.status(500).json({ error: "Failed to send message" });
+  }
+});
+
 async function generateJwt(username) {
   const jwt = require('jsonwebtoken');
 
