@@ -99,8 +99,15 @@ app.post("/send-message", async (req, res) => {
   }
 
   try {
+    const jwt = await generateJwt("bot");
+    const loginResponse = await axios.post(homeserverUrl + "/_matrix/client/r0/login", {
+      type: "org.matrix.login.jwt",
+      token: jwt,
+    });
+  
+    const accessToken = loginResponse.data.access_token;
     const botStorage = new SimpleFsStorageProvider("welcome-bot.json");
-    const client = new MatrixClient(homeserverUrl, await getAccessToken(), botStorage);
+    const client = new MatrixClient(homeserverUrl, accessToken, botStorage);
 
     await client.sendText(roomId, message);
     res.json({ success: true });
